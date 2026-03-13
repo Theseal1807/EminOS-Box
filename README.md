@@ -1,264 +1,301 @@
-# image-template
+<p align="center">
+  <a href="https://bazzite.gg/"><img src="/repo_content/Bazzite_Tagline.svg?raw=true" alt="Bazzite"/></a>
+</p>
 
-This repository is meant to be a template for building your own custom [bootc](https://github.com/bootc-dev/bootc) image. This template is the recommended way to make customizations to any image published by the Universal Blue Project.
+[![build-bazzite](https://github.com/ublue-os/bazzite/actions/workflows/build.yml/badge.svg)](https://github.com/ublue-os/bazzite/actions/workflows/build.yml) [![build-bazzite-isos](https://github.com/ublue-os/bazzite/actions/workflows/build_iso.yml/badge.svg)](https://github.com/ublue-os/bazzite/actions/workflows/build_iso.yml) [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/ublue-os/bazzite/badge)](https://scorecard.dev/viewer/?uri=github.com/ublue-os/bazzite) [![LFX Health Score](https://insights.linuxfoundation.org/api/badge/health-score?project=ublue-os-bazzite)](https://insights.linuxfoundation.org/project/ublue-os-bazzite) [![LFX Active Contributors](https://insights.linuxfoundation.org/api/badge/active-contributors?project=ublue-os-bazzite)](https://insights.linuxfoundation.org/project/ublue-os-bazzite) [<img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/ublue-os/countme/main/badge-endpoints/bazzite.json&label=Bazzite&logo=data:image%2Fpng;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC%2FxhBQAAAAFzUkdCAdnJLH8AAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAuIwAALiMBeKU%2FdgAAAAd0SU1FB%2BkHDxYoOpQmhHYAAAXkSURBVFjDnZdtbJvVFYCfc%2B%2BN7diJ80WX1mndtFRtaUfpB7QUSsXHqgwJCSGN%2FVoHA23Aj4HYpqBJTJs0TdqfSds0aZXGtA9tP6ZuEkj7MYlpGisUsGj5aFII0JaVGpI0oUkaJ44%2F3rMfr%2F3Gr2PHZdeydPz61XnOOfd83CvULTN0fI9Rc49Frrcq9tF7BhhIdWEUBOH1zDiZszmsCg6DVSlYlY%2BdykWLef30ibvO8zmWC6Sh4xsEfisqRwyCVf8rSAA3gKk8t0hY9o3h1kMvfeTU%2FMmoHPvPyUPZVgaYCjwt8IpROWIxuBrFUWvYs7WL23b1MLg2juA%2Ft1p5b6U8aFSedci5Iwdf%2FcWXb30t2dIAgT8YlQ0WCcGdGm65oYvN6ztIrYmzZ0cP63rbVoNXtkawaqJW5UmHjN5%2FIHOoqQEydPw2o3JnFVgLtyrEY5ZY1DLQH0OA%2Ft7ItcBrZFlv1fzrwf2nHmpogFW5txnc4udAR7tFFWJR23QLmsD930ibU%2Fn9125%2B6%2BhKAzBrmsGtGkD4bKbIJ%2BN58vkyosuQa4RXttVgkd88su%2Bd%2FfURWKGs1kNRQP2XBb8aGgNbwnEqUafmz0%2FsHYkHZfiNu1OIChFruGlLJ90dbUgFJwipdR0BHOD2g%2F3cuLMneAMPPs0WmMwWMQiiQmHB48rlEpfOLjUyZItV%2BS7wYwD56R%2FHjony2M3buhkcSBBpM7RHLVfnSyHPA2A1EgLJpGN%2BtowqvJmZZX6m7BtR6RdLC2VGMleZHCvWGzJnIf2zt7bPGqNgEHq7IjgrpNbE6Gh3q8L98hGSyTZ6%2BtoA6O52IbhBiMcdBw73MvjFWH0UklbNUV9PpcNdns5TLkN2PM%2FcfHFVuADqwZXpIp9NFVFPmZkqheBV2Yqwa38XnT02iEIl774CIF%2F%2F3ivHROUxg7Bzc5x41PpI9ZXs3b2G%2Fv5EAB85M814Nl%2FJEP8z%2FWmJuSnPByL09kVIpdpDhmTP5XnvxQU%2FUX1D1Hh0un%2Bfmgsy%2F%2BQb8yuy%2Bicbk6ztTwSev%2F%2FuPP%2F462yjDK%2BR8%2By83WPrzo4gItf1R7C6WIVjVcQgN5pW9VwbdirKVof78oVMPrQdiXZXC8f5%2Bnc4W5lizWpbEPr6IsTjlunJAqKt4RZBSuFcQAnBLQajYp1Tf6y6mhFcKwNcnS3hrJDPewAt4VaFvg1tNUkJ%2BUUvBK%2FqdlalZGu6l6uTc3MepaJyeaKAesqViXJLuFPD2nQkgAvC0ryugAOesypjQeuta6NWhQ%2FOLtLblSPR4ZjMLrEwoy3hToTUxlgANyrMjZfq4QDvO4c5Y1bp4YKQ%2FWgJQ2G5tkP1HIZbhK13xIm32wCOB1MjpXo4CmeMUTlpkYVmA6TaKQN4MI6lLqt9ed32CJu2xQO4ANOXingzK44Cp54ZTc%2BYN16%2Bs%2BBU%2Ft4ssaoNqVpSHQnXFL75QIyb7khizTLcK8LFE0uNziJ%2FCw6lTs2vDPLVRnubmy1jUssltWlLgqkLJeazflZHo4aB7VEGt8Xp6nYhzw3CucwCxRmthy8Bz9W2d44cPPmSVXO4PgrdPY6hB74QeOWPXFi8WsYaIZFwoWyvhV98O0%2F25UIj7385PJp%2BavlU7Nf2ty1SrI%2FC4rRy8dxCeMggdHa6AC51cMpwPrPYDD4B%2FDDgVoUPLz03sWPgW0Wr5kv1ezt9oUh3vyOZbAt52Eiemywz9s9FZsbKzQ7CDw6PpkcgPO6X%2F91%2F6ndW5eFGSbZpd4zN2xN0Jl0IXsgps5NFLr9bInfeW6l0eT09PJr%2BeeObUTUknn7TYa1FjtZne%2FZ0gYnTJeJJS2efxXjCwseKFMD5vX01%2BPfr4Q0jUF2P7HvnB07NjyxilmdE7eAKy6vAc8Cjw6PpvzT6U1a7Nj2%2Bd2SfU%2FNrq3LL%2Fwl%2FAXhqeDT932YMuZYb7Hd2v3efU%2FOEVRlyGNsCngOer5RappVu%2BTxX6Wd3fdht1Ry2Knscst6qSfiTnhzwAfCmoieeGd24dK06%2FwcT97y6eGrxwQAAAABJRU5ErkJggg%3D%3D">](https://github.com/ublue-os/bazzite) [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/ublue-os/bazzite)
 
-# Community
+# [🇺🇸](https://github.com/ublue-os/bazzite/blob/main/README.md)
 
-If you have questions about this template after following the instructions, try the following spaces:
-- [Universal Blue Forums](https://universal-blue.discourse.group/)
-- [Universal Blue Discord](https://discord.gg/WEu6BdFEtp)
-- [bootc discussion forums](https://github.com/bootc-dev/bootc/discussions) - This is not an Universal Blue managed space, but is an excellent resource if you run into issues with building bootc images.
+<p align="center">
+  <a href="https://download.bazzite.gg/"><img src="/repo_content/download.png?raw=true" alt="Download Bazzite"/></a>
+</p>
 
-# How to Use
+---
 
-To get started on your first bootc image, simply read and follow the steps in the next few headings.
-If you prefer instructions in video form, TesterTech created an excellent tutorial, embedded below.
+# Table of Contents
+- [Table of Contents](#table-of-contents)
+  - [About \& Features](#about--features)
+    - [Desktop](#desktop)
+    - [Steam Deck/Home Theater PCs (HTPCs)](#steam-deckhome-theater-pcs-htpcs)
+      - [Alternative Handhelds](#alternative-handhelds)
+    - [GNOME](#gnome)
+    - [Features from Upstream](#features-from-upstream)
+      - [Universal Blue](#universal-blue)
+      - [Features from Fedora Linux (Kinoite \& Silverblue)](#features-from-fedora-linux-kinoite--silverblue)
+  - [Why](#why)
+  - [Showcase](#showcase)
+  - [Documentation](#documentation)
+  - [Verification](#verification)
+  - [Secure Boot](#secure-boot)
+  - [Contributor Metrics](#contributor-metrics)
+  - [Star History](#star-history)
+  - [Special Thanks](#special-thanks)
+  - [Build Your Own](#build-your-own)
+  - [Join The Community](#join-the-community)
+---
 
-[![Video Tutorial](https://img.youtube.com/vi/IxBl11Zmq5w/0.jpg)](https://www.youtube.com/watch?v=IxBl11Zmq5wE)
+## About & Features
 
-## Step 0: Prerequisites
+[Please see our website](https://bazzite.gg/) for a newcomer-friendly explanation of Bazzite. This readme will cover everything in-depth.
 
-These steps assume you have the following:
-- A Github Account
-- A machine running a bootc image (e.g. Bazzite, Bluefin, Aurora, or Fedora Atomic)
-- Experience installing and using CLI programs
+[Bazzite](https://bazzite.gg/) is a custom [Fedora Atomic](https://fedoraproject.org/atomic-desktops/) image built with [cloud native](https://universal-blue.org/#cloud-native) technology that brings the best of Linux gaming to **all of your devices - including your favorite handheld**.
 
-## Step 1: Preparing the Template
+Bazzite is built from [ublue-os/main](https://github.com/ublue-os/main) and [ublue-os/nvidia](https://github.com/ublue-os/nvidia) using [Fedora](https://fedoraproject.org/) technology, which means expanded hardware support and built in drivers are included. Additionally, Bazzite adds the following features:
 
-### Step 1a: Copying the Template
+- Uses the [bazzite kernel](https://github.com/bazzite-org/kernel-bazzite) to achieve HDR and expanded hardware support, among numerous other included patches - based off of the [fsync kernel](https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/).
+- HDR available in Game mode.
+- NVK available on non-Nvidia builds.
+- Full hardware accelerated codec support for H264 decoding.
+- Full support for AMD's ROCM OpenCL/HIP run-times.
+- [xone](https://github.com/medusalix/xone) driver for Xbox controllers.
+- Full support for [DisplayLink](https://www.synaptics.com/products/displaylink-graphics).
+- Includes Valve's KDE themes from SteamOS.
+- [LatencyFleX](https://github.com/ishitatsuyuki/LatencyFleX), [vkBasalt](https://github.com/DadSchoorse/vkBasalt), [MangoHud](https://github.com/flightlessmango/Mangohud), and [OBS VkCapture](https://github.com/nowrep/obs-vkcapture) installed and available by default
+- [ROM Properties Page shell extension](https://github.com/GerbilSoft/rom-properties) included.
+- Full support for [Winesync/Fastsync/NTsync](https://github.com/Frogging-Family/wine-tkg-git/issues/936).
+- [Distrobox](https://github.com/89luca89/distrobox) preinstalled.
+- Simplified Davinci Resolve installation with [davincibox](https://github.com/zelikos/davincibox) (`ujust install-resolve`)
+- Automated `duperemove` service for reducing the disk space used by wine prefix contents.
+- Support for HDMI CEC via [libCEC](https://libcec.pulse-eight.com/).
+- Uses [Google's BBR TCP congestion control](https://github.com/google/bbr) by default.
+- [Input Remapper](https://github.com/sezanzeb/input-remapper) preinstalled and enabled. <sub><sup>(Available but default-disabled on the Deck variant, may be enabled with `ujust restore-input-remapper`)</sup></sub>
+- [Bazzite Portal](https://github.com/ublue-os/yafti-gtk) provides an easy way to install numerous applications( and tweaks, including installing [LACT](https://github.com/ilya-zlobintsev/LACT) and IDEs over Brew. It additionally provides easy buttons to update, rebase and even reset the system image to defaults.
+- [Waydroid](https://waydro.id/) preinstalled for running Android apps. Set it up with this [quick guide](https://docs.bazzite.gg/Installing_and_Managing_Software/Waydroid_Setup_Guide/).
+- Manage applications using [Flatseal](https://github.com/tchx84/Flatseal), [Warehouse](https://github.com/flattool/warehouse), and [Gear Lever](https://github.com/mijorus/gearlever).
+- [OpenRGB](https://gitlab.com/CalcProgrammer1/OpenRGB) i2c-piix4 and i2c-nct6775 drivers for controlling RGB on certain motherboards.
+- [OpenRazer](https://openrazer.github.io) drivers built in, Select OpenRazer in Bazzite Portal or run `ujust install-openrazer` in a terminal to begin using it.
+- [OpenTabletDriver](https://opentabletdriver.net/) udev rules built in, with the full software suite installable via Bazzite Portal or by running `ujust install-opentabletdriver` in a terminal.
+- Out of the box support for [Wooting](https://wooting.io/) keyboards.
+- Built in support for Southern Islands <sub><sup>(HD 7000)</sup></sub> and Sea Islands <sub><sup>(HD 8000)</sup></sub> AMD GPUs under the `amdgpu` driver.
+- [XwaylandVideoBridge](https://invent.kde.org/system/xwaylandvideobridge) is available for Discord screensharing on Wayland.
+- [Webapp Manager](https://github.com/linuxmint/webapp-manager) is available for creating applications from websites for a variety of browsers, including Firefox.
 
-Select `Use this Template` on this page. You can set the name and description of your repository to whatever you would like, but all other settings should be left untouched.
+### Desktop
 
-Once you have finished copying the template, you need to enable the Github Actions workflows for your new repository.
-To enable the workflows, go to the `Actions` tab of the new repository and click the button to enable workflows.
+Common variant available as `bazzite`, suitable for desktop computers.
 
-### Step 1b: Cloning the New Repository
+- Automatic updates for the OS, Flatpaks, and more - powered by [ublue-update](https://github.com/ublue-os/ublue-update) and [topgrade](https://github.com/topgrade-rs/topgrade).
 
-Here I will defer to the much superior GitHub documentation on the matter. You can use whichever method is easiest.
-[GitHub Documentation](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+> [!IMPORTANT]
+> **ISOs can be downloaded from our [website](https://download.bazzite.gg), and a helpful install guide can be found [here](https://docs.bazzite.gg/General/Installation_Guide/).**
 
-Once you have the repository on your local drive, proceed to the next step.
-
-## Step 2: Initial Setup
-
-### Step 2a: Creating a Cosign Key
-
-Container signing is important for end-user security and is enabled on all Universal Blue images. By default the image builds *will fail* if you don't.
-
-First, install the [cosign CLI tool](https://edu.chainguard.dev/open-source/sigstore/cosign/how-to-install-cosign/#installing-cosign-with-the-cosign-binary)
-With the cosign tool installed, run inside your repo folder:
+Rebase from an existing upstream Fedora Atomic to this image if you want **Open Source GPU Drivers**:
+(Please note: Mesa's Open Source option for NVIDIA GPUs, NVK is still prone to errors at the time of writing, for any issues relating to NVK [please submit a report with Mesa]([url](https://docs.mesa3d.org/bugs.html)), not Ublue/Bazzite)
 
 ```bash
-COSIGN_PASSWORD="" cosign generate-key-pair
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/ublue-os/bazzite:stable
 ```
 
-The signing key will be used in GitHub Actions and will not work if it is password protected.
+or for devices with Nvidia GPUs wanting the **NVIDIA Proprietary Drivers**:
+
+```bash
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/ublue-os/bazzite-nvidia:stable
+```
+
+**For users with Secure Boot enabled:** Follow our [secure boot documentation](#secure-boot) prior to rebasing.
+
+### Steam Deck/Home Theater PCs (HTPCs)
+Variant designed for usage as an alternative to SteamOS on the Steam Deck, and for a console-like experience on HTPCs, available as `bazzite-deck`:
+
+- Directly boots to Game mode matching SteamOS's behavior.
+- **Automatic `duperemove` greatly trims the size of compatdata.**
+- **Latest version of Mesa creates smaller shader caches and does not require them to prevent stutter.**
+- **Able to be booted even if the drive is full.**
+- **Support for every language supported by upstream Fedora.**
+- **Uses Wayland on the desktop with [support for Steam input](https://github.com/Supreeeme/extest).**
+- Includes [HHD](https://github.com/hhd-dev/hhd) for expanded input support on non-Valve handhelds.
+- Features ported versions of most SteamOS packages, including drivers, firmware updaters, and fan controllers [from the evlaV repository](https://gitlab.com/evlaV).
+- Patched Mesa for proper framerate control from Gamescope.
+- Comes with patches from [SteamOS BTRFS](https://gitlab.com/popsulfr/steamos-btrfs) for full BTRFS support for the SD card by default.
+- Ships with a ported copy of [SDGyroDSU](https://github.com/kmicki/SteamDeckGyroDSU), enabled by default.
+- Option to install [Decky Loader](https://github.com/SteamDeckHomebrew/decky-loader), [EmuDeck](https://www.emudeck.com/), [RetroDECK](https://retrodeck.net/), and [ProtonUp-Qt](https://davidotek.github.io/protonup-qt/), among numerous other useful packages on installation.
+- Custom update system allows for the OS, Flatpaks, and more to be updated directly from the Game mode UI powered by [ublue-update](https://github.com/ublue-os/ublue-update) and [topgrade](https://github.com/topgrade-rs/topgrade).
+- Built in support for Windows dual-boot thanks to Fedora's installation of GRUB being left intact.
+- Update break something? Easily roll back to the previous version of Bazzite thanks to `rpm-ostree`'s rollback functionality. You can even select previous images at boot.
+- Steam and Lutris preinstalled on the image as layered packages.
+- [Discover Overlay](https://github.com/trigg/Discover) for Discord pre-installed and automatically launches in both Game mode and on the Desktop if Discord is installed. [View the official documentation here](https://trigg.github.io/Discover/bazzite).
+- Uses ZRAM<sub><sup>(4GB)</sup></sub> with the LZ4 compression algorithm by default.
+- [LAVD](https://crates.io/crates/scx_lavd) and [BORE](https://github.com/firelzrd/bore-scheduler) CPU Schedulers for smooth and responsive gameplay.
+- Kyber I/O scheduler to prevent I/O starvation when installing games or during background `duperemove` process.
+- Applies SteamOS's kernel parameters.
+- Color calibrated display profiles for matte and reflective Steam Deck screens included.
+- Default-disabled power-user features, including:
+    - Service for low-risk undervolting of the Steam Deck as well as AMD Framework Laptops via [RyzenAdj](https://github.com/FlyGoat/RyzenAdj) and [Ryzen SMU](https://gitlab.com/leogx9r/ryzen_smu), see `ryzenadj.service` and `/etc/default/ryzenadj`.
+    - Built in support for display overclocking. For example, add `CUSTOM_REFRESH_RATES=30-68` to `/etc/environment`. Minimum and maximum refresh rates differ per handheld!
+    - 32GB RAM mod your Steam Deck? Enjoy double the maximum VRAM amount, automatically applied. <sup><sub>(Can you share your soldering skills?)</sub></sup>
+- Steam Deck hardware-specific services can be disabled by running `ujust disable-bios-updates` and `ujust disable-firmware-updates` in the terminal. These are automatically disabled on non-Deck hardware, and on Decks with DeckHD displays or 32GB RAM mods.
+- More information can be found [here](https://docs.bazzite.gg/Handheld_and_HTPC_edition/Steam_Gaming_Mode/) on the Bazzite Steam Deck images.
+
+> [!IMPORTANT]
+> **ISOs can be downloaded from our [website](https://download.bazzite.gg), and a helpful install guide can be found [here](https://docs.bazzite.gg/General/Installation_Guide/).**
+
+Rebase from an existing upstream Fedora Atomic to this image:
+
+```bash
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/ublue-os/bazzite-deck:stable
+```
+
+#### Alternative Handhelds
+
+Please refer to our [Handheld Wiki](https://docs.bazzite.gg/Handheld_and_HTPC_edition/Handheld_Wiki/) for required setting changes and Decky Loader plugins for Steam Gaming Mode on your specific Handheld.
+
+**Be sure to also read the [hhd documentation](https://github.com/hhd-dev/hhd#after-install), some handhelds require specific setting changes/tweaks to function properly.**
+
+We also ship `ujust` commands to install various [CSS Loader](https://docs.deckthemes.com/CSSLoader/Install/#linux-or-steam-deck) themes that can't be found on the CSS Loader store. These will be automatically updated with Bazzite if installed.
+```bash
+# Install Handheld Controller Theme (https://github.com/victor-borges/handheld-controller-glyphs)
+ujust install-hhd-controller-glyph-theme
+```
+
+### GNOME
+
+Builds with the GNOME desktop environment are available in both desktop and deck flavors. These builds come with the following additional features:
+
+- [Variable refresh rate support and fractional scaling enabled under Wayland](https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/1154).
+- Custom menu in the top bar for returning to game mode, launching Steam, and opening a number of useful utilities.
+- [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/) preinstalled and ready to use.
+- [Hanabi extension](https://github.com/jeffshee/gnome-ext-hanabi) included to offer similar features to Wallpaper Engine in KDE.
+- Numerous optional extensions pre-installed, including [important user experience fixes](https://www.youtube.com/watch?v=nbCg9_YgKgM).
+- Automatic updates for the [Firefox GNOME theme](https://github.com/rafaelmardojai/firefox-gnome-theme) and [Thunderbird GNOME theme](https://github.com/rafaelmardojai/thunderbird-gnome-theme). <sup><sub>(If installed)</sub></sup>
+
+> [!IMPORTANT]
+> **ISOs can be downloaded from our [website](https://download.bazzite.gg), and a helpful install guide can be found [here](https://docs.bazzite.gg/General/Installation_Guide/).**
+
+Rebase from an existing upstream Fedora Atomic to this image:
+
+```bash
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/ublue-os/bazzite-gnome:stable
+```
+
+To rebase an existing ostree system to a Desktop Environment with the **Proprietary NVIDIA Drivers** release:
+
+```bash
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/ublue-os/bazzite-gnome-nvidia:stable
+```
+
+To rebase an existing ostree system to the **Steam Deck/HTPC** release:
+
+```bash
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/ublue-os/bazzite-deck-gnome:stable
+```
+
+**For users with Secure Boot enabled:** Follow our [secure boot documentation](#secure-boot) prior to rebasing.
+
+### Features from Upstream
+
+#### Universal Blue
+
+- Proprietary Nvidia drivers pre-installed. <sub><sup>(Only for Nvidia images)</sup></sub>
+- Flathub is enabled by default.
+- [`ujust`](https://github.com/casey/just) commands for convenience.
+- Multi-media codecs out of the box.
+- Rollback Bazzite from any build within the last 90 days.
+
+#### Features from Fedora Linux (Kinoite & Silverblue)
+
+- A rock solid and stable base.
+- System packages stay relatively up to date.
+- Can layer Fedora packages to the image without losing them between updates.
+- Security focused with [SELinux](https://github.com/SELinuxProject/selinux) preinstalled and configured out of the box.
+- The ability to rebase to different Fedora Atomic images, if desired, without losing user data.
+- Printing support thanks to [CUPS](https://www.cups.org/) being preinstalled.
+
+## Why
+
+Bazzite started as a project to resolve some of the issues that plague SteamOS, mainly out of date packages (despite an Arch base) and the lack of a functional package manager.
+
+Despite this project also being image-based, you are able to install any Fedora package straight from the command line. These packages will persist across updates <sub><sup>(So go ahead and install that obscure VPN software you spent an hour trying to get working in SteamOS)</sup></sub>. Additionally, Bazzite is updated multiple times a week with packages from upstream Fedora, giving you the best possible performance and latest features - all on a stable base.
+
+Bazzite ships with the latest Linux kernel and SELinux enabled by default with full support for secure boot <sub><sup>(Run `ujust enroll-secure-boot-key` and enter the password `universalblue` if prompted to enroll our key)</sup></sub> and disk encryption, making this a sensible solution for general computing. <sup><sub>(Yes, you can print from Bazzite)</sub></sup>
+
+Read the [FAQ](https://docs.bazzite.gg/General/FAQ/) for details on what makes Bazzite stand out from other Linux based operating systems.
+
+## Showcase
+
+![KDE Vapor Theme](/repo_content/desktop1.png?raw=true "KDE Vapor Theme")
+![KDE VGUI2 Theme](/repo_content/desktop2.png?raw=true "KDE VGUI2 Theme")
+![Steam Game Mode](/repo_content/gamemode.png?raw=true "Steam Game Mode")
+![Waydroid](/repo_content/waydroid.png?raw=true "Waydroid")
+![Distrobox Terminals](/repo_content/distrobox.png?raw=true "Distrobox Terminals")
+![GNOME Vapor Theme](/repo_content/gnome1.png?raw=true "GNOME Vapor Theme")
+![GNOME VGUI2 Theme](/repo_content/gnome2.png?raw=true "GNOME VGUI2 Theme")
+
+## Documentation
+
+- [Installing and Managing Applications](https://docs.bazzite.gg/Installing_and_Managing_Software/)
+- [Updates, Rollbacks, and Rebasing](https://docs.bazzite.gg/Installing_and_Managing_Software/Updates_Rollbacks_and_Rebasing/)
+- [Gaming Guide](https://docs.bazzite.gg/Gaming/)
+
+View [additional documentation](http://docs.bazzite.gg/) surrounding the project.
+
+## Verification
+
+These images are signed with sigstore's [cosign](https://docs.sigstore.dev/cosign/key_management/overview/). You can verify the signature by downloading the `cosign.pub` key from this repo and running the following command:
+
+```bash
+cosign verify --key cosign.pub ghcr.io/ublue-os/bazzite
+```
+
+## Secure Boot
 
 > [!WARNING]
-> Be careful to *never* accidentally commit `cosign.key` into your git repo. If this key goes out to the public, the security of your repository is compromised.
+> **Steam Deck Users: The Steam Deck does not come with secure boot enabled and does not ship with any keys enrolled by default. Do not enable this unless you absolutely know what you're doing.**
 
-Next, you need to add the key to GitHub. This makes use of GitHub's secret signing system.
-
-<details>
-    <summary>Using the Github Web Interface (preferred)</summary>
-
-Go to your repository settings, under `Secrets and Variables` -> `Actions`
-![image](https://user-images.githubusercontent.com/1264109/216735595-0ecf1b66-b9ee-439e-87d7-c8cc43c2110a.png)
-Add a new secret and name it `SIGNING_SECRET`, then paste the contents of `cosign.key` into the secret and save it. Make sure it's the .key file and not the .pub file. Once done, it should look like this:
-![image](https://user-images.githubusercontent.com/1264109/216735690-2d19271f-cee2-45ac-a039-23e6a4c16b34.png)
-</details>
-<details>
-<summary>Using the Github CLI</summary>
-
-If you have the `github-cli` installed, run:
+Secure boot is supported with our custom key. The pub key can be found in the root of this repository [here](https://github.com/ublue-os/bazzite/blob/main/secure_boot.der).
+If you'd like to enroll this key prior to installation or rebase, download the key and run the following:
 
 ```bash
-gh secret set SIGNING_SECRET < cosign.key
-```
-</details>
-
-### Step 2b: Choosing Your Base Image
-
-To choose a base image, simply modify the line in the container file starting with `FROM`. This will be the image your image derives from, and is your starting point for modifications.
-For a base image, you can choose any of the Universal Blue images or start from a Fedora Atomic system. Below this paragraph is a dropdown with a non-exhaustive list of potential base images.
-
-<details>
-    <summary>Base Images</summary>
-
-- Bazzite: `ghcr.io/ublue-os/bazzite:stable`
-- Aurora: `ghcr.io/ublue-os/aurora:stable`
-- Bluefin: `ghcr.io/ublue-os/bluefin:stable`
-- Universal Blue Base: `ghcr.io/ublue-os/base-main:latest`
-- Fedora: `quay.io/fedora/fedora-bootc:42`
-
-You can find more Universal Blue images on the [packages page](https://github.com/orgs/ublue-os/packages).
-</details>
-
-If you don't know which image to pick, choosing the one your system is currently on is the best bet for a smooth transition. To find out what image your system currently uses, run the following command:
-```bash
-sudo bootc status
-```
-This will show you all the info you need to know about your current image. The image you are currently on is displayed after `Booted image:`. Paste that information after the `FROM` statement in the Containerfile to set it as your base image.
-
-### Step 2c: Changing Names
-
-Change the first line in the [Justfile](./Justfile) to your image's name.
-
-To commit and push all the files changed and added in step 2 into your Github repository:
-```bash
-git add Containerfile Justfile cosign.pub
-git commit -m "Initial Setup"
-git push
-```
-Once pushed, go look at the Actions tab on your Github repository's page.  The green checkmark should be showing on the top commit, which means your new image is ready!
-
-## Step 3: Switch to Your Image
-
-From your bootc system, run the following command substituting in your Github username and image name where noted.
-```bash
-sudo bootc switch ghcr.io/<username>/<image_name>
-```
-This should queue your image for the next reboot, which you can do immediately after the command finishes. You have officially set up your custom image! See the following section for an explanation of the important parts of the template for customization.
-
-# Repository Contents
-
-## Containerfile
-
-The [Containerfile](./Containerfile) defines the operations used to customize the selected image.This file is the entrypoint for your image build, and works exactly like a regular podman Containerfile. For reference, please see the [Podman Documentation](https://docs.podman.io/en/latest/Introduction.html).
-
-## build.sh
-
-The [build.sh](./build_files/build.sh) file is called from your Containerfile. It is the best place to install new packages or make any other customization to your system. There are customization examples contained within it for your perusal.
-
-## build.yml
-
-The [build.yml](./.github/workflows/build.yml) Github Actions workflow creates your custom OCI image and publishes it to the Github Container Registry (GHCR). By default, the image name will match the Github repository name. There are several environment variables at the start of the workflow which may be of interest to change.
-
-# Building Disk Images
-
-This template provides an out of the box workflow for creating disk images (ISO, qcow, raw) for your custom OCI image which can be used to directly install onto your machines.
-
-This template provides a way to upload the disk images that is generated from the workflow to a S3 bucket. The disk images will also be available as an artifact from the job, if you wish to use an alternate provider. To upload to S3 we use [rclone](https://rclone.org/) which is able to use [many S3 providers](https://rclone.org/s3/).
-
-## Setting Up ISO Builds
-
-The [build-disk.yml](./.github/workflows/build-disk.yml) Github Actions workflow creates a disk image from your OCI image by utilizing the [bootc-image-builder](https://osbuild.org/docs/bootc/). In order to use this workflow you must complete the following steps:
-
-1. Modify `disk_config/iso.toml` to point to your custom container image before generating an ISO image.
-2. If you changed your image name from the default in `build.yml` then in the `build-disk.yml` file edit the `IMAGE_REGISTRY`, `IMAGE_NAME` and `DEFAULT_TAG` environment variables with the correct values. If you did not make changes, skip this step.
-3. Finally, if you want to upload your disk images to S3 then you will need to add your S3 configuration to the repository's Action secrets. This can be found by going to your repository settings, under `Secrets and Variables` -> `Actions`. You will need to add the following
-  - `S3_PROVIDER` - Must match one of the values from the [supported list](https://rclone.org/s3/)
-  - `S3_BUCKET_NAME` - Your unique bucket name
-  - `S3_ACCESS_KEY_ID` - It is recommended that you make a separate key just for this workflow
-  - `S3_SECRET_ACCESS_KEY` - See above.
-  - `S3_REGION` - The region your bucket lives in. If you do not know then set this value to `auto`.
-  - `S3_ENDPOINT` - This value will be specific to the bucket as well.
-
-Once the workflow is done, you'll find the disk images either in your S3 bucket or as part of the summary under `Artifacts` after the workflow is completed.
-
-# Artifacthub
-
-This template comes with the necessary tooling to index your image on [artifacthub.io](https://artifacthub.io). Use the `artifacthub-repo.yml` file at the root to verify yourself as the publisher. This is important to you for a few reasons:
-
-- The value of artifacthub is it's one place for people to index their custom images, and since we depend on each other to learn, it helps grow the community. 
-- You get to see your pet project listed with the other cool projects in Cloud Native.
-- Since the site puts your README front and center, it's a good way to learn how to write a good README, learn some marketing, finding your audience, etc. 
-
-[Discussion Thread](https://universal-blue.discourse.group/t/listing-your-custom-image-on-artifacthub/6446)
-
-# Justfile Documentation
-
-The `Justfile` contains various commands and configurations for building and managing container images and virtual machine images using Podman and other utilities.
-To use it, you must have installed [just](https://just.systems/man/en/introduction.html) from your package manager or manually. It is available by default on all Universal Blue images.
-
-## Environment Variables
-
-- `image_name`: The name of the image (default: "image-template").
-- `default_tag`: The default tag for the image (default: "latest").
-- `bib_image`: The Bootc Image Builder (BIB) image (default: "quay.io/centos-bootc/bootc-image-builder:latest").
-
-## Building The Image
-
-### `just build`
-
-Builds a container image using Podman.
-
-```bash
-just build $target_image $tag
+sudo mokutil --timeout -1
+sudo mokutil --import secure_boot.der
 ```
 
-Arguments:
-- `$target_image`: The tag you want to apply to the image (default: `$image_name`).
-- `$tag`: The tag for the image (default: `$default_tag`).
+For users already on a Universal Blue image, you may instead run `ujust enroll-secure-boot-key`.
 
-## Building and Running Virtual Machines and ISOs
+If asked for a password, use `universalblue`.
 
-The below commands all build QCOW2 images. To produce or use a different type of image, substitute in the command with that type in the place of `qcow2`. The available types are `qcow2`, `iso`, and `raw`.
+## Contributor Metrics
 
-### `just build-qcow2`
+![Bazzite](https://repobeats.axiom.co/api/embed/86b500d79c613015ad16f56df76c8e13f3fd98ae.svg "Repobeats analytics image")
 
-Builds a QCOW2 virtual machine image.
+## Star History
 
-```bash
-just build-qcow2 $target_image $tag
-```
+<a href="https://star-history.com/#ublue-os/bazzite&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ublue-os/bazzite&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ublue-os/bazzite&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ublue-os/bazzite&type=Date" />
+  </picture>
+</a>
 
-### `just rebuild-qcow2`
+## Special Thanks
 
-Rebuilds a QCOW2 virtual machine image.
+Bazzite is a community effort and wouldn't exist without everyone's support. Below are some of the people who've helped us along the way:
 
-```bash
-just rebuild-vm $target_image $tag
-```
+- [amelia.svg](https://bsky.app/profile/ameliasvg.bsky.social) - For creating our logo and overall branding.
+- [SuperRiderTH](https://github.com/SuperRiderTH) - For creating our Steam game mode startup video.
+- [evlaV](https://gitlab.com/evlaV) - For making Valve's code available and for being [this person](https://xkcd.com/2347/).
+- [ChimeraOS](https://chimeraos.org/) - For gamescope-session and for valuable support along the way.
+- [Jovian-NixOS](https://github.com/Jovian-Experiments) - For supporting us with technical issues and for creating a similar project. Seriously, go check it out. It's our Nix-based cousin.
+- [sentry](https://copr.fedorainfracloud.org/coprs/sentry/) - For assistance with needed kernel patches and for creating the [kernel-fsync repo](https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/) we now use.
+- [nicknamenamenick](https://github.com/nicknamenamenick) - For being the MVP nearly single-handedly upkeeping our documentation and support literature, and countless cases of helping users.
+- [Steam Deck Homebrew](https://deckbrew.xyz) - For choosing to support distributions other than SteamOS despite the extra work, and a special thanks to [PartyWumpus](https://github.com/PartyWumpus) for getting Decky Loader working with SELinux for us.
+- [cyrv6737](https://github.com/cyrv6737) - For the initial inspiration and the base that became bazzite-arch.
 
-### `just run-vm-qcow2`
+## Build Your Own
 
-Runs a virtual machine from a QCOW2 image.
+Bazzite is built entirely in GitHub and creating your own custom version of it is as easy as forking this repository, adding a private signing key, and enabling GitHub actions.
 
-```bash
-just run-vm-qcow2 $target_image $tag
-```
+[Familiarize yourself](https://docs.github.com/en/actions/security-guides/encrypted-secrets) on keeping secrets in github. You'll need to [generate a new keypair](https://docs.sigstore.dev/cosign/signing/overview/) with cosign. The public key can be in your public repo <sub><sup>(Your users need it to check the signatures)</sup></sub>, and you can paste the private key in `Settings -> Secrets -> Actions` with the name `SIGNING_SECRET`.
 
-### `just spawn-vm`
+We also ship a config for the popular [pull app](https://github.com/apps/pull) if you'd like to keep your fork in sync with upstream. Enable this app on your repo to keep track of Bazzite changes while also making your own modifications.
 
-Runs a virtual machine using systemd-vmspawn.
+## Join The Community
 
-```bash
-just spawn-vm rebuild="0" type="qcow2" ram="6G"
-```
+- You can find us on the [Universal Blue Discord](https://discord.gg/f8MUghG5PB)
+  - View the [archive](https://www.answeroverflow.com/c/1072614816579063828/1143023993041993769) of support threads without an account.
 
-## File Management
+- Discuss and create user guides over at the [Universal Blue Discourse Forums](https://universal-blue.discourse.group/c/bazzite/5).
 
-### `just check`
+- Follow Universal Blue on [Mastodon](https://fosstodon.org/@UniversalBlue).
 
-Checks the syntax of all `.just` files and the `Justfile`.
-
-### `just fix`
-
-Fixes the syntax of all `.just` files and the `Justfile`.
-
-### `just clean`
-
-Cleans the repository by removing build artifacts.
-
-### `just lint`
-
-Runs shell check on all Bash scripts.
-
-### `just format`
-
-Runs shfmt on all Bash scripts.
-
-## Additional resources
-
-For additional driver support, ublue maintains a set of scripts and container images available at [ublue-akmod](https://github.com/ublue-os/akmods). These images include the necessary scripts to install multiple kernel drivers within the container (Nvidia, OpenRazer, Framework...). The documentation provides guidance on how to properly integrate these drivers into your container image.
-
-## Community Examples
-
-These are images derived from this template (or similar enough to this template). Reference them when building your image!
-
-- [m2Giles' OS](https://github.com/m2giles/m2os)
-- [bOS](https://github.com/bsherman/bos)
-- [Homer](https://github.com/bketelsen/homer/)
-- [Amy OS](https://github.com/astrovm/amyos)
-- [VeneOS](https://github.com/Venefilyn/veneos)
+[**View the full list of Bazzite resources and social presence**](https://docs.bazzite.gg/Resources/).
