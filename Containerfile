@@ -5,6 +5,16 @@ COPY build_files /
 # Base Image
 FROM ghcr.io/ublue-os/bazzite-deck:stable
 
+RUN echo 'NAME="EminOS"' > /usr/lib/os-release && \
+    echo 'PRETTY_NAME="EminOS"' >> /usr/lib/os-release && \
+    echo 'ID=eminos' >> /usr/lib/os-release && \
+    echo 'ID_LIKE="fedora"' >> /usr/lib/os-release && \
+    echo 'VERSION="1"' >> /usr/lib/os-release && \
+    echo 'VERSION_ID="1"' >> /usr/lib/os-release && \
+    echo 'HOME_URL="https://github.com/theseal1807/eminos-box"' >> /usr/lib/os-release && \
+    echo 'VARIANT="EminOS Box"' >> /usr/lib/os-release
+
+
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
 # FROM ghcr.io/ublue-os/bluefin-nvidia:stable
