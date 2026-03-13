@@ -253,20 +253,6 @@ For users already on a Universal Blue image, you may instead run `ujust enroll-s
 
 If asked for a password, use `universalblue`.
 
-## Contributor Metrics
-
-![Bazzite](https://repobeats.axiom.co/api/embed/86b500d79c613015ad16f56df76c8e13f3fd98ae.svg "Repobeats analytics image")
-
-## Star History
-
-<a href="https://star-history.com/#ublue-os/bazzite&Date">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ublue-os/bazzite&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ublue-os/bazzite&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ublue-os/bazzite&type=Date" />
-  </picture>
-</a>
-
 ## Special Thanks
 
 Bazzite is a community effort and wouldn't exist without everyone's support. Below are some of the people who've helped us along the way:
