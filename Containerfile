@@ -3,7 +3,7 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/bazzite-deck:stable
+FROM ghcr.io/ublue-os/bazzite:stable-44
 
 RUN echo 'NAME="EminOS"' > /usr/lib/os-release && \
     echo 'PRETTY_NAME="EminOS"' >> /usr/lib/os-release && \
