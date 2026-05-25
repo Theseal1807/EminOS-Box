@@ -20,9 +20,8 @@ COPY just/scopebuddy.just /usr/share/ublue-os/just/60-scopebuddy.just
 
 RUN dnf install -y yt-dlp
 
-RUN dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-
-RUN dnf install discord
+RUN dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm && \
+    dnf install -y discord
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
