@@ -18,8 +18,6 @@ RUN echo 'NAME="EminOS"' > /usr/lib/os-release && \
 COPY just/scopebuddy.just /usr/share/ublue-os/just/60-scopebuddy.just
 
 
-RUN dnf install -y yt-dlp
-
 RUN dnf install -y yt-dlp && \
     dnf install -y https://dl.discordapp.net/apps/linux/stable/discord.rpm
 
