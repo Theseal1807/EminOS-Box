@@ -18,6 +18,8 @@ RUN echo 'NAME="EminOS"' > /usr/lib/os-release && \
 COPY just/scopebuddy.just /usr/share/ublue-os/just/60-scopebuddy.just
 
 
+RUN dnf install -y yt-dlp discord
+
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
 # FROM ghcr.io/ublue-os/bluefin-nvidia:stable
